@@ -17,6 +17,7 @@
     "tests"
   ],
   "dependencies": {
-    "semantic": "~0.3.4"
+    "semantic": "~0.3.4",
+    "angular-ui-date": "latest"
   }
 }

@@ -1,4 +1,4 @@
-var app = angular.module("app", []);
+var app = angular.module("app", ['ui.date']);
 
 
 app.config(function($routeProvider) {
