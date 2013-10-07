@@ -7,7 +7,7 @@
             <h5 class="ui header">
                 Neue Veranstaltung anmelden
             </h5>
-            <div class="ui form segment">
+            <div id="main_form" class="ui form segment">
                 <div class="ui corner label">
                     <div class="text">New</div>
                 </div>
@@ -16,8 +16,14 @@
                     <label>
                         Antragsteller:
                     </label>
-                    <input type="text" ng-model="data.name" placeholder="Vorname Nachname"><br><br>
-                    <input type="text" ng-model="data.email" placeholder="vorname.nachname@mdg-hamburg.de">
+                    <input id="name" type="text" ng-model="data.name" placeholder="Vorname Nachname" required>
+                </div>
+
+                <div class="field">
+                    <label>
+                        E-Mail:
+                    </label>
+                    <input id="email" type="text" ng-model="data.email" placeholder="vorname.nachname@mdg-hamburg.de" required>
                 </div>
 
 
@@ -25,28 +31,28 @@
                     <label>
                         Name Veranstaltung:
                     </label>
-                    <input type="text" ng-model="data.eventName" placeholder="DSP Kurs XYZ">
+                    <input id="eventName" type="text" ng-model="data.eventName" placeholder="DSP Kurs XYZ" required>
                 </div>
 
                 <div class="field">
                     <label>
                         Veranstaltungs Ort:
                     </label>
-                    <input type="text" ng-model="data.eventLoc" placeholder="Aula">
+                    <input id="eventLoc" type="text" ng-model="data.eventLoc" placeholder="Aula" required>
                 </div>
 
                 <div class="field">
                     <label>
                         Datum:
                     </label>
-                    <input type="text" ng-model="data.eventDate" placeholder="1.1.1971" ui-date />
+                    <input id="eventDate" type="text" ng-model="data.eventDate" placeholder="1.1.1971" ui-date required/>
                 </div>
 
                 <div class="field">
                     <label>
                         Zeitraum:
                     </label>
-                    <input type="text" ng-model="data.eventTime" placeholder="00:00 - 24:00">
+                    <input id="eventTime" type="text" ng-model="data.eventTime" placeholder="00:00 - 24:00" required>
                 </div>
 
                 <div class="field">
@@ -73,10 +79,24 @@
                 <br />
                 <br />
 
-                <div class="ui teal labeled icon button" ng-click="commit()">
+                <button class="ui teal labeled icon button" ng-click="commit()">
                     Veranstaltung anmelden
                     <i class="add icon"></i>
-                </div>
+                </button>
             </div>
         </div>
     </div>
+
+<!-- Form-Error Modal -->
+<div class="ui modal">
+    <i class="close icon"></i>
+    <div class="header">
+        Achtung!
+    </div>
+    <div class="content">
+        Das Formular muss fehlerfrei sein, bevor es abgesendet werden kann!
+    </div>
+    <div class="actions">
+        <div class="ui button">OK</div>
+    </div>
+</div>
