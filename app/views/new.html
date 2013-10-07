@@ -1,0 +1,93 @@
+    <div class="ui celled grid">
+        <div class="one wide middle column">
+            <i class="large add sign icon"></i>
+        </div>
+
+        <div class="eight wide middle column">
+            <h5 class="ui header">
+                Neue Veranstaltung anmelden
+            </h5>
+            <div class="ui form segment">
+                <div class="ui corner label">
+                    <div class="text">New</div>
+                </div>
+
+                <div class="field">
+                    <label>
+                        Antragsteller:
+                    </label>
+                    <input type="text" ng-model="data.name" placeholder="Vorname Nachname"><br><br>
+                    <input type="text" ng-model="data.email" placeholder="vorname.nachname@mdg-hamburg.de">
+                </div>
+
+
+                <div class="field">
+                    <label>
+                        Name Veranstaltung:
+                    </label>
+                    <input type="text" ng-model="data.eventName" placeholder="DSP Kurs XYZ">
+                </div>
+
+                <div class="field">
+                    <label>
+                        Veranstaltungs Ort:
+                    </label>
+                    <input type="text" ng-model="data.eventLoc" placeholder="Aula">
+                </div>
+
+                <div class="field">
+                    <label>
+                        Datum:
+                    </label>
+                    <input type="text" id="datepicker" ng-model="data.eventDate" placeholder="1.1.1971" />
+                </div>
+
+                <div class="field">
+                    <label>
+                        Zeitraum:
+                    </label>
+                    <input type="text" ng-model="data.eventTime" placeholder="00:00 - 24:00">
+                </div>
+
+                <div class="field">
+                    <label>
+                        Voraussichtlicher Technik-Bedarf:
+                    </label>
+                    <textarea ng-model="data.eventReq" placeholder="2x Mikrophon, etc."></textarea>
+                </div>
+
+                <div class="field">
+                    <label>
+                        Weitere Anmerkungen:
+                    </label>
+                    <textarea ng-model="data.extra"></textarea>
+                </div>
+                
+
+                <div class="ui checkbox">
+                    <input type="checkbox" ng-model="data.selfSent">
+                    <div class="box"></div>
+                </div>
+                <label>Antrag auch an <span ng-hide="data.email.length">deine@email.de</span><span>{{data.email}}</span> senden</label>
+
+                <br />
+                <br />
+
+                <div class="ui teal labeled icon button" ng-click="commit()">
+                    Veranstaltung anmelden
+                    <i class="add icon"></i>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script>
+    var init = function() {
+        $('.ui.checkbox').checkbox();
+        $(function() {
+            $("#datepicker").datepicker().datepicker("option", "dateFormat", "dd.mm.yy");
+        });
+    }
+    </script>
