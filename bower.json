@@ -1,0 +1,22 @@
+{
+  "name": "MDGTechnik",
+  "version": "0.0.0",
+  "authors": [
+    "Christian Gärtner <christiangaertner.film@googlemail.com>"
+  ],
+  "description": "Event-Anmeldungen on-the-fly!",
+  "main": "index.html",
+  "license": "MIT",
+  "homepage": "technik.mdg-hamburg.de",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "semantic": "~0.3.4"
+  }
+}
