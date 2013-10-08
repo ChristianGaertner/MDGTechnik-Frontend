@@ -64,4 +64,21 @@ angular.module('app').controller('SingleController', function($scope, $http, $lo
             break;
         
     }
+
+    // Deletion confirmation
+    $scope.confirm = function() {
+        
+        $scope.modal_yes = function() {
+            $location.path('veranstaltung/delete/' + $scope.veranstaltung.id);
+        }
+
+        $scope.modal_no = function() {
+            // Do nothing
+        }
+        $scope.modal = {
+                    title : 'Wirklich!',
+                    msg : 'Wollen Sie wirklich diese Veranstaltung löschen?',
+                }
+                $('#question_modal').modal('show');
+    }
 });
