@@ -6,15 +6,17 @@ app.config(function($routeProvider) {
 		controller: 'AllController'
 	});
 
+	$routeProvider.when('/veranstaltung/new', {
+		templateUrl: 'app/views/new.html',
+		controller: 'NewController'
+	});
+
 	$routeProvider.when('/veranstaltung/:id', {
 		templateUrl: 'app/views/single.html',
 		controller: 'SingleController'
 	});
 
-	$routeProvider.when('/veranstaltung/new', {
-		templateUrl: 'app/views/new.html',
-		controller: 'NewController'
-	});
+	
 
 	$routeProvider.otherwise({ redirectTo: '/veranstaltung/new'});
 });
