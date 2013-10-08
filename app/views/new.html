@@ -12,6 +12,8 @@
                     <div class="text">New</div>
                 </div>
 
+                <div ng-include src="'app/views/shared/loading.html'"></div>
+
                 <div class="field">
                     <label>
                         Antragsteller:
@@ -86,17 +88,4 @@
             </div>
         </div>
     </div>
-
-<!-- Form-Error Modal -->
-<div class="ui modal">
-    <i class="close icon"></i>
-    <div class="header">
-        Achtung!
-    </div>
-    <div class="content">
-        {{ modalMsg }}
-    </div>
-    <div class="actions">
-        <div class="ui button">OK</div>
-    </div>
-</div>
+    <div ng-include src="'app/views/shared/modal.html'"></div>

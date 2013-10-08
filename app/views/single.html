@@ -1,0 +1,72 @@
+    <div class="ui celled grid">
+        <div class="one wide middle column">
+            <i class="huge tasks icon"></i>
+        </div>
+
+        <div class="eight wide middle column">
+            <h2 class="ui header">
+                {{ veranstaltung.name }}
+                <small><small><small>von</small> {{ veranstaltung.author }}</small></small>
+            </h2>
+                        
+            <table class="ui table segment">
+                <tbody>
+                    <tr>
+                        <td>Status</td>
+                        <td class="{{ veranstaltung.status.type }}"><i class="{{ veranstaltung.status.icon }} icon"></i>{{ veranstaltung.status.message }}</td>
+                    </tr>
+                    <tr>
+                        <td>Autor</td>
+                        <td>{{ veranstaltung.author }}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Kontakt-Email</td>
+                        <td>{{ veranstaltung.email }}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Ort</td>
+                        <td>{{ veranstaltung.loc }}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Datum</td>
+                        <td>{{ veranstaltung.date }}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Zeitraum</td>
+                        <td>{{ veranstaltung.timespan }}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Benötigte Technik</td>
+                        <td>{{ veranstaltung.req }}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Weitere Anmerkungen</td>
+                        <td>{{ veranstaltung.notes }}</td>
+                    </tr>
+                    <tr>
+                        <td>Eingeteilter Techniker</td>
+                        <td>
+                            <div ng-repeat="worker in veranstaltung.workers">
+                                {{ worker.job }} : {{ worker.name }}
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th colspan="3">
+                        <div class="ui red labeled icon button"><i class="remove icon"></i>Veranstaltung absagen</div>
+                        </th>
+                    </tr>
+                </tfoot>
+            </table>
+
+        </div>
+    </div>
+    <div ng-include src="'app/views/shared/modal.html'"></div>

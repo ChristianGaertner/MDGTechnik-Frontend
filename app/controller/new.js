@@ -5,11 +5,19 @@ angular.module('app').controller('NewController', function($scope, $http, $locat
     $scope.commit = function() {
 
         // Client side form validation
-        // if ($scope.isInvalid()) {
-        //     $scope.modalMsg = 'Das Formular muss fehlerfrei sein, bevor es abgesendet werden kann!';
-        //     $('.ui.modal').modal('show');
-        //     return;
-        // };
+        if ($scope.isInvalid()) {
+            $scope.modal = {
+                    title : 'Achtung!',
+                    msg : 'Das Formular muss fehlerfrei sein, bevor es abgesendet werden kann!',
+            }
+            $('.ui.modal').modal('show');
+            return;
+        }
+
+        $scope.loading = {
+            active : true,
+            text: 'Daten werden gesendet'
+        }
 
         // Posting data
         $http({
@@ -20,16 +28,27 @@ angular.module('app').controller('NewController', function($scope, $http, $locat
                 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
             }
         })
-        .success(function(data) {
-            if (data.status == 'success') {
-                $location.path('all');
+        .success(function(res) {
+            $scope.loading.active = false
+
+            if (res.status == 'success') {
+                $location.path('veranstaltung/' + res.data.id);
             } else {
-                $scope.modalMsg = 'Es trat ein Fehler auf bei der Speicherung der Information! (Antwort des Servers: "' + data.message + '")';
+                $scope.modal = {
+                    title : 'Achtung!',
+                    msg : 'Es trat ein Fehler auf bei der Speicherung der Information! (Antwort des Servers: "' + data.message + '")',
+                }
                 $('.ui.modal').modal('show');
             }
         })
-        .error(function(data, status) {
-            $scope.modalMsg = 'Es trat ein Fehler auf bei der Speicherung der Information! (Interessierte können die JavaScript Konsole für mehr Infos einsehen!)';
+        .error(function(res, status) {
+
+            $scope.loading.active = false
+
+            $scope.modal = {
+                title : 'Achtung!',
+                msg : 'Es trat ein Fehler auf bei der Speicherung der Information! (Interessierte können die JavaScript Konsole für mehr Infos einsehen!)',
+            }
             $('.ui.modal').modal('show');
         })
     };
