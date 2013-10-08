@@ -10,7 +10,7 @@ angular.module('app').controller('NewController', function($scope, $http, $locat
                     title : 'Achtung!',
                     msg : 'Das Formular muss fehlerfrei sein, bevor es abgesendet werden kann!',
             }
-            $('.ui.modal').modal('show');
+            $('#notice_modal').modal('show');
             return;
         }
 
@@ -38,7 +38,7 @@ angular.module('app').controller('NewController', function($scope, $http, $locat
                     title : 'Achtung!',
                     msg : 'Es trat ein Fehler auf bei der Speicherung der Information! (Antwort des Servers: "' + data.message + '")',
                 }
-                $('.ui.modal').modal('show');
+                $('#notice_modal').modal('show');
             }
         })
         .error(function(res, status) {
@@ -49,7 +49,7 @@ angular.module('app').controller('NewController', function($scope, $http, $locat
                 title : 'Achtung!',
                 msg : 'Es trat ein Fehler auf bei der Speicherung der Information! (Interessierte können die JavaScript Konsole für mehr Infos einsehen!)',
             }
-            $('.ui.modal').modal('show');
+            $('#notice_modal').modal('show');
         })
     };
 
