@@ -1,4 +1,4 @@
-angular.module('app').controller('SingleController', function($scope, $http, $location) {
+angular.module('app').controller('SingleController', function($scope, $http, $location, $routeParams) {
     // // Posting data
     // $http({
     //     url: API_ADRESS + 'index.php',
@@ -23,6 +23,7 @@ angular.module('app').controller('SingleController', function($scope, $http, $lo
     
     // Dummy Data
     $scope.veranstaltung = {
+        id: $routeParams.id,
         status: {
             message: 'Ok',
             type: 'positive',

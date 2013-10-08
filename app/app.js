@@ -6,7 +6,7 @@ app.config(function($routeProvider) {
 		controller: 'AllController'
 	});
 
-	$routeProvider.when('/veranstaltung/1', {
+	$routeProvider.when('/veranstaltung/:id', {
 		templateUrl: 'app/views/single.html',
 		controller: 'SingleController'
 	});
