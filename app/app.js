@@ -11,6 +11,11 @@ app.config(function($routeProvider) {
 		controller: 'NewController'
 	});
 
+	$routeProvider.when('/veranstaltung/delete', {
+		templateUrl: 'app/views/delete.html',
+		controller: 'DeleteController'
+	});
+
 	$routeProvider.when('/veranstaltung/:id', {
 		templateUrl: 'app/views/single.html',
 		controller: 'SingleController'
