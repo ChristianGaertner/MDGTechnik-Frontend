@@ -1,35 +1,44 @@
 angular.module('app').controller('NewController', function($scope, $http) {
 
-	$scope.data = {};
-	$scope.commit = function() {
+    $scope.data = {};
+    $scope.data.selfSent = false;
+    $scope.commit = function() {
 
-		if ($scope.isInvalid()) {
-			$('.ui.modal').modal('show');
-			return;
-		};
-
-		$http({
-			url: 'http://api.mdg-technik.tk/api/v1/index.php',
-			method: 'POST',
-			data: $scope.data,
-			headers: {
-				'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-			}
-		}).success(function(data) {
-			console.log(data);
-		})
-	};
+        // Client side form validation
+        if ($scope.isInvalid()) {
+            $('.ui.modal').modal('show');
+            return;
+        };
 
 
-	var registrationForm = $('#main_form');
+        console.log('Data to send:' + $scope.data)
 
-	$scope.isInvalid = function() {
-		return !registrationForm.form('validate form');
-	};
-	
+        $http({
+            url: 'http://api.mdg-technik.tk/v1/index.php',
+            method: 'POST',
+            data: $scope.data,
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+            }
+        })
+        .success(function(data) {
+            console.log(data)
+        })
+        .error(function(data, status) {
+            console.log('Connection Error. Status: ' + status)
+        })
+    };
 
-	// Check Box & Modals
-	(function() {
+
+    var registrationForm = $('#main_form');
+
+    $scope.isInvalid = function() {
+        return !registrationForm.form('validate form');
+    };
+    
+
+    // Check Box & Modals
+    (function() {
         $('.ui.checkbox').checkbox();
     })();
 

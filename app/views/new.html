@@ -71,8 +71,8 @@
                 
 
                 <div class="ui checkbox">
-                    <input type="checkbox" ng-model="data.selfSent">
-                    <div class="box"></div>
+                    <input type="checkbox">
+                    <div class="box" ng-click="data.selfSent = !data.selfSent"></div>
                 </div>
                 <label>Antrag auch an <span ng-hide="data.email.length">deine@email.de</span><span>{{data.email}}</span> senden</label>
 
