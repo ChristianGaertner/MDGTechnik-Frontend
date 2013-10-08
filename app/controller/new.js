@@ -1,20 +1,19 @@
-angular.module('app').controller('NewController', function($scope, $http) {
+angular.module('app').controller('NewController', function($scope, $http, $location) {
 
     $scope.data = {};
     $scope.data.selfSent = false;
     $scope.commit = function() {
 
         // Client side form validation
-        if ($scope.isInvalid()) {
-            $('.ui.modal').modal('show');
-            return;
-        };
+        // if ($scope.isInvalid()) {
+        //     $scope.modalMsg = 'Das Formular muss fehlerfrei sein, bevor es abgesendet werden kann!';
+        //     $('.ui.modal').modal('show');
+        //     return;
+        // };
 
-
-        console.log('Data to send:' + $scope.data)
-
+        // Posting data
         $http({
-            url: 'http://api.mdg-technik.tk/v1/index.php',
+            url: API_ADRESS + 'index.php',
             method: 'POST',
             data: $scope.data,
             headers: {
@@ -22,10 +21,16 @@ angular.module('app').controller('NewController', function($scope, $http) {
             }
         })
         .success(function(data) {
-            console.log(data)
+            if (data.status == 'success') {
+                $location.path('all');
+            } else {
+                $scope.modalMsg = 'Es trat ein Fehler auf bei der Speicherung der Information! (Antwort des Servers: "' + data.message + '")';
+                $('.ui.modal').modal('show');
+            }
         })
         .error(function(data, status) {
-            console.log('Connection Error. Status: ' + status)
+            $scope.modalMsg = 'Es trat ein Fehler auf bei der Speicherung der Information! (Interessierte können die JavaScript Konsole für mehr Infos einsehen!)';
+            $('.ui.modal').modal('show');
         })
     };
 
