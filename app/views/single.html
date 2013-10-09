@@ -17,6 +17,14 @@
                         <td class="{{ veranstaltung.status.type }}"><i class="{{ veranstaltung.status.icon }} icon"></i>{{ veranstaltung.status.message }}</td>
                     </tr>
                     <tr>
+                        <td>Erstellt am</td>
+                        <td>{{ veranstaltung.createdAt }}</td>
+                    </tr>
+                    <tr>
+                        <td>Zuletztz bearbeitet am</td>
+                        <td>{{ veranstaltung.lastEdit }}</td>
+                    </tr>
+                    <tr>
                         <td>Autor</td>
                         <td>{{ veranstaltung.author }}</td>
                     </tr>
@@ -61,8 +69,11 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                        <th colspan="3">
-                        <div class="ui red labeled icon button" ng-click="confirm()"><i class="remove icon"></i>Veranstaltung absagen</div>
+                        <th>
+                            <div class="ui blue labeled icon button" ng-click="edit()"><i class="edit icon"></i>Veranstaltung bearbeiten</div>
+                        </th>
+                        <th>
+                            <div class="ui red labeled icon button" ng-click="confirm()"><i class="remove icon"></i>Veranstaltung absagen</div>
                         </th>
                     </tr>
                 </tfoot>
