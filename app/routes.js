@@ -1,5 +1,6 @@
 app.config(function($routeProvider) {
-	$routeProvider.when('/veranstaltung', {
+
+	$routeProvider.when('/veranstaltungen', {
 		templateUrl: 'app/views/all.html',
 		controller: 'AllController'
 	});
@@ -21,5 +22,7 @@ app.config(function($routeProvider) {
 
 	
 
-	$routeProvider.otherwise({ redirectTo: '/veranstaltung/new'});
+	$routeProvider.otherwise({
+		redirectTo: '/veranstaltung/new'}
+	);
 });
