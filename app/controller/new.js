@@ -17,7 +17,7 @@ angular.module('app').controller('NewController', function($scope, $http, $locat
         $scope.loading = {
             active : true,
             text: 'Daten werden gesendet'
-        }
+        };
 
         // Posting data
         $http({
@@ -29,7 +29,7 @@ angular.module('app').controller('NewController', function($scope, $http, $locat
             }
         })
         .success(function(res) {
-            $scope.loading.active = false
+            $scope.loading.active = false;
 
             if (res.status == 'success') {
                 $location.path('veranstaltung/' + res.data.id);
@@ -37,20 +37,20 @@ angular.module('app').controller('NewController', function($scope, $http, $locat
                 $scope.modal = {
                     title : 'Achtung!',
                     msg : 'Es trat ein Fehler auf bei der Speicherung der Information! (Antwort des Servers: "' + data.message + '")',
-                }
+                };
                 $('#notice_modal').modal('show');
             }
         })
         .error(function(res, status) {
 
-            $scope.loading.active = false
+            $scope.loading.active = false;
 
             $scope.modal = {
                 title : 'Achtung!',
                 msg : 'Es trat ein Fehler auf bei der Speicherung der Information! (Interessierte können die JavaScript Konsole für mehr Infos einsehen!)',
-            }
+            };
             $('#notice_modal').modal('show');
-        })
+        });
     };
 
 

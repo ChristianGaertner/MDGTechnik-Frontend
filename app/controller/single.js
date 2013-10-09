@@ -32,7 +32,7 @@ angular.module('app').controller('SingleController', function($scope, $http, $lo
             $scope.modal = {
                     title : 'Achtung!',
                     msg : 'Es trat ein Fehler auf bei dem Abrufen der Information! (Antwort des Servers: "' + data.message + '")',
-            }
+            };
             $('#notice_modal').modal('show');
         }
     })
@@ -40,9 +40,9 @@ angular.module('app').controller('SingleController', function($scope, $http, $lo
         $scope.modal = {
                     title : 'Achtung!',
                     msg : 'Es trat ein Fehler auf bei dem Abrufen der Information! (Interessierte können die JavaScript Konsole für mehr Infos einsehen!)',
-            }
+            };
             $('#notice_modal').modal('show');
-    })
+    });
     
     // // Dummy Data
     // $scope.veranstaltung = {
@@ -80,15 +80,15 @@ angular.module('app').controller('SingleController', function($scope, $http, $lo
         
         $scope.modal_yes = function() {
             $location.path('veranstaltung/delete/' + $scope.veranstaltung.id);
-        }
+        };
 
         $scope.modal_no = function() {
             // Do nothing
-        }
+        };
         $scope.modal = {
                     title : 'Wirklich!',
                     msg : 'Wollen Sie wirklich diese Veranstaltung löschen?',
-                }
+                };
                 $('#question_modal').modal('show');
-    }
+    };
 });

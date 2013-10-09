@@ -4,5 +4,5 @@ app.config(function ($httpProvider) {
             return data;
         }
         return $.param(data);
-    }
+    };
 });
