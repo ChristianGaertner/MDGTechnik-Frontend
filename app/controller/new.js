@@ -9,7 +9,7 @@ angular.module('app').controller('NewController', function($scope, $http, $locat
             $scope.modal = {
                     title : 'Achtung!',
                     msg : 'Das Formular muss fehlerfrei sein, bevor es abgesendet werden kann!',
-            }
+            };
             $('#notice_modal').modal('show');
             return;
         }
