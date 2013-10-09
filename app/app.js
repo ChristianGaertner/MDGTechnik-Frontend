@@ -1,1 +1,1 @@
-var app = angular.module("app", ['ui.date', 'ngCookies']);
+var app = angular.module("app", ['ui.date']);
