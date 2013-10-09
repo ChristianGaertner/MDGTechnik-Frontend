@@ -1,4 +1,10 @@
 angular.module('app').controller('SingleController', function($scope, $http, $location, $routeParams, NotificationService) {
+    
+    $scope.loading = {
+            active : true,
+            text: 'Daten werden geladen'
+        };
+
     // Receving data
     $http({
         url: API_ADRESS + 'index.php?id=' + $routeParams.id,
@@ -8,6 +14,7 @@ angular.module('app').controller('SingleController', function($scope, $http, $lo
         }
     })
     .success(function(data) {
+        $scope.loading.active = false;
         if (data.status == 'success') {
 
             $scope.veranstaltung = data.data;
@@ -32,6 +39,7 @@ angular.module('app').controller('SingleController', function($scope, $http, $lo
         }
     })
     .error(function(data, status) {
+        $scope.loading.active = false;
         NotificationService.show('Achtung!', 'Es trat ein Fehler auf bei dem Abrufen der Information! (Interessierte können die JavaScript Konsole für mehr Infos einsehen!)');
     });
     
