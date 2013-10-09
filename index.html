@@ -86,10 +86,15 @@
             <div class="ui button">Ok</div>
         </div>
     </div>
-
+    
     <!-- Loading Screen => LoadingScreenService -->
-    <div class="ui active dimmer" ng-show="loading.active">
-        <div class="ui text loader">{{ loading.text }}</div>
+    <div ng-show="loading.active">
+        <!-- This has to be in a div, otherwise the "active dimmer" would affect modals
+            they wouldn' t show up
+        -->
+        <div class="ui active dimmer" >
+            <div class="ui text loader">{{ loading.text }}</div>
+        </div>
     </div>
 
 
