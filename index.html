@@ -64,12 +64,25 @@
                 </div>
             </div>
     </div>
-    
-    
 
     <h1><i class="attention icon"></i>Diese Seite ist zur Zeit nicht funktions tüchtig!</h1>
 
     <div id="view" ng-view></div>
+
+    <!-- Notice Modal -->
+    <div id="notice_modal" class="ui modal">
+        <i class="close icon"></i>
+        <div class="header">
+            {{ modal.title }}
+        </div>
+        <div class="content">
+            {{ modal.msg }}
+        </div>
+            <div class="actions">
+            <div class="ui button">Ok</div>
+        </div>
+    </div>
+
 
     <div class="ui celled grid">
         
