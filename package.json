@@ -1,8 +1,21 @@
 {
   "name": "MDGTechnik",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "devDependencies": {
     "grunt": "~0.4.1",
+    "grunt-contrib-uglify": "~0.2.4",
+    "grunt-contrib-jshint": "~0.6.4"
+  },
+  "gitHead": "f626c266c1aff8f6dd291405a6f22771930bbe13",
+  "description": "Frontend",
+  "main": "Gruntfile.js",
+  "dependencies": {
+    "grunt": "~0.4.1",
     "grunt-contrib-uglify": "~0.2.4"
-  }
+  },
+  "keywords": [
+    "frontend"
+  ],
+  "author": "Christian Gaertner",
+  "license": "All rights reserved"
 }
