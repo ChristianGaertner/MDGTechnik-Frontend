@@ -1,2 +1,3 @@
-angular.module('app').controller('AllController', function($scope) {
+angular.module('app').controller('AllController', function($scope, $cookies) {
+	console.log($cookies);
 });
