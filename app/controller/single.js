@@ -1,9 +1,6 @@
-angular.module('app').controller('SingleController', function($scope, $http, $location, $routeParams, NotificationService) {
+angular.module('app').controller('SingleController', function($scope, $http, $location, $routeParams, NotificationService, LoadingScreenService) {
     
-    $scope.loading = {
-            active : true,
-            text: 'Daten werden geladen'
-        };
+    LoadingScreenService.show('Daten werden geladen');
 
     // Receving data
     $http({
@@ -14,7 +11,7 @@ angular.module('app').controller('SingleController', function($scope, $http, $lo
         }
     })
     .success(function(data) {
-        $scope.loading.active = false;
+        LoadingScreenService.hide();
         if (data.status == 'success') {
 
             $scope.veranstaltung = data.data;
@@ -39,40 +36,14 @@ angular.module('app').controller('SingleController', function($scope, $http, $lo
         }
     })
     .error(function(data, status) {
-        $scope.loading.active = false;
+        LoadingScreenService.hide();
         NotificationService.show('Achtung!', 'Es trat ein Fehler auf bei dem Abrufen der Information! (Interessierte können die JavaScript Konsole für mehr Infos einsehen!)');
     });
-    
-    // // Dummy Data
-    // $scope.veranstaltung = {
-    //     id: $routeParams.id,
-    //     status: {
-    //         message: 'Ok',
-    //         type: 'positive',
-    //     },
-    //     name : 'Konzert XYZ',
-    //     author: 'Christian Gärtner',
-    //     email: 'christiangaertner.film@googlemail.com',
-    //     loc: 'Aula',
-    //     date: new Date(),
-    //     timespan: '00:00 - 07:00',
-    //     req: '2x Mikrophon',
-    //     notes: 'Alles soll blau sein!',
-    //     workers: [
-    //         {
-    //             name: 'Christian',
-    //             job: 'Licht'
-    //         },
-    //         {
-    //             name: 'Philip',
-    //             job: 'Ton'
-    //         },
-    //         {
-    //             name: 'Niloy',
-    //             job: 'Ton'
-    //         }
-    //     ]
-    // }
+
+    // Edit
+    $scope.edit = function() {
+        NotificationService.show('In Kürze!', 'Diese Funktion ist in kürze Verfügbar!');
+    };
 
     // Deletion confirmation
     $scope.confirm = function() {

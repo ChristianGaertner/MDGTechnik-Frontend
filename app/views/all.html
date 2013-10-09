@@ -1,7 +1,33 @@
-<ul>
-	<li>All</li>
-	<li>Events</li>
-	<li>are</li>
-	<li>going</li>
-	<li>here</li>
-</ul>
+    <div class="ui celled grid">
+        <div class="one wide middle column">
+            <i class="huge tasks icon"></i>
+        </div>
+
+        <div class="eight wide middle column">
+            <h2 class="ui header">
+                Veranstaltungen
+            </h2>     
+            <table class="ui table segment">
+                <thead>
+                    <td>Name</td>
+                </thead>
+                
+                <tbody ng-repeat="veranstaltung in veranstaltungen">
+                    <td><a href="#/veranstaltung/{{ veranstaltung.id }}">{{ veranstaltung.name }}</a></td>
+                </tbody>
+
+                <tfoot>
+                    <tr>
+                        <th>
+                            <div class="ui blue labeled icon button" ng-click="edit()"><i class="edit icon"></i>Veranstaltung bearbeiten</div>
+                        </th>
+                        <th>
+                            <div class="ui red labeled icon button" ng-click="confirm()"><i class="remove icon"></i>Veranstaltung absagen</div>
+                        </th>
+                    </tr>
+                </tfoot>
+            </table>
+
+        </div>
+    </div>
+    <div ng-include src="'app/views/shared/question_modal.html'"></div>

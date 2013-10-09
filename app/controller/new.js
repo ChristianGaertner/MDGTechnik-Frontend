@@ -1,4 +1,4 @@
-angular.module('app').controller('NewController', function($scope, $http, $location, NotificationService) {
+angular.module('app').controller('NewController', function($scope, $http, $location, NotificationService, LoadingScreenService) {
 
     $scope.data = {};
     $scope.data.selfSent = false;
@@ -10,10 +10,7 @@ angular.module('app').controller('NewController', function($scope, $http, $locat
             return;
         }
 
-        $scope.loading = {
-            active : true,
-            text: 'Daten werden gesendet'
-        };
+        LoadingScreenService.show('Daten werden gesendet');
 
         // Posting data
         $http({
@@ -25,7 +22,7 @@ angular.module('app').controller('NewController', function($scope, $http, $locat
             }
         })
         .success(function(res) {
-            $scope.loading.active = false;
+            LoadingScreenService.hide();
 
             if (res.status == 'success') {
                 $location.path('veranstaltung/' + res.data.id);
@@ -34,7 +31,7 @@ angular.module('app').controller('NewController', function($scope, $http, $locat
             }
         })
         .error(function(res, status) {
-            $scope.loading.active = false;
+            LoadingScreenService.hide();
             NotificationService.show('Achtung!', 'Es trat ein Fehler auf bei der Speicherung der Information! (Interessierte können die JavaScript Konsole für mehr Infos einsehen!)');
         });
     };

@@ -12,7 +12,7 @@
     <!-- CSS -->
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Open+Sans:300italic,400,300,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="bower_components/semantic/build/packaged/css/semantic.css">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+    <link rel="stylesheet" href="bower_components/jquery-ui/themes/smoothness/jquery-ui.css" />
     <link rel="stylesheet" type="text/css" href="css/main.css">
     
 
@@ -41,6 +41,7 @@
 
     <!-- Services -->
     <script src="app/services/notificationService.js"></script>
+    <script src="app/services/LoadingScreenService.js"></script>
 
     <!-- Controllers -->
     <script src="app/controller/all.js"></script>
@@ -72,7 +73,7 @@
 
     <div id="view" ng-view></div>
 
-    <!-- Notice Modal -->
+    <!-- Notice Modal => NotificationService -->
     <div id="NotificationService" class="ui modal">
         <i class="close icon"></i>
         <div class="header">
@@ -84,6 +85,11 @@
             <div class="actions">
             <div class="ui button">Ok</div>
         </div>
+    </div>
+
+    <!-- Loading Screen => LoadingScreenService -->
+    <div class="ui active dimmer" ng-show="loading.active">
+        <div class="ui text loader">{{ loading.text }}</div>
     </div>
 
 
