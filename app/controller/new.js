@@ -27,7 +27,7 @@ angular.module('app').controller('NewController', function($scope, $http, $locat
             if (res.status == 'success') {
                 $location.path('veranstaltung/' + res.data.id);
             } else {
-                NotificationService.show('Achtung!', 'Es trat ein Fehler auf bei der Speicherung der Information! (Antwort des Servers: "' + data.message + '")');
+                NotificationService.show('Achtung!', 'Es trat ein Fehler auf bei der Speicherung der Information! (Antwort des Servers: "' + res.message + '")');
             }
         })
         .error(function(res, status) {
