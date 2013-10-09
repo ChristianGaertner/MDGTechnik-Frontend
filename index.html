@@ -39,6 +39,9 @@
     <script src="app/config/httpProvider.js"></script>
     <script src="app/config/apiConnection.js"></script>
 
+    <!-- Services -->
+    <script src="app/services/notificationService.js"></script>
+
     <!-- Controllers -->
     <script src="app/controller/all.js"></script>
     <script src="app/controller/new.js"></script>
@@ -70,7 +73,7 @@
     <div id="view" ng-view></div>
 
     <!-- Notice Modal -->
-    <div id="notice_modal" class="ui modal">
+    <div id="NotificationService" class="ui modal">
         <i class="close icon"></i>
         <div class="header">
             {{ modal.title }}

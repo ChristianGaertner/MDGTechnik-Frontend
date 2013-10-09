@@ -1,4 +1,4 @@
-angular.module('app').controller('SingleController', function($scope, $http, $location, $routeParams) {
+angular.module('app').controller('SingleController', function($scope, $http, $location, $routeParams, NotificationService) {
     // Receving data
     $http({
         url: API_ADRESS + 'index.php?id=' + $routeParams.id,
@@ -9,9 +9,8 @@ angular.module('app').controller('SingleController', function($scope, $http, $lo
     })
     .success(function(data) {
         if (data.status == 'success') {
-            console.log(data);
+
             $scope.veranstaltung = data.data;
-            console.log($scope.veranstaltung);
 
 
             switch($scope.veranstaltung.status.type) {
@@ -29,19 +28,11 @@ angular.module('app').controller('SingleController', function($scope, $http, $lo
 
 
         } else {
-            $scope.modal = {
-                    title : 'Achtung!',
-                    msg : 'Es trat ein Fehler auf bei dem Abrufen der Information! (Antwort des Servers: "' + data.message + '")',
-            };
-            $('#notice_modal').modal('show');
+            NotificationService.show('Achtung!', 'Es trat ein Fehler auf bei dem Abrufen der Information! (Antwort des Servers: "' + data.message + '")');
         }
     })
     .error(function(data, status) {
-        $scope.modal = {
-                    title : 'Achtung!',
-                    msg : 'Es trat ein Fehler auf bei dem Abrufen der Information! (Interessierte können die JavaScript Konsole für mehr Infos einsehen!)',
-            };
-            $('#notice_modal').modal('show');
+        NotificationService.show('Achtung!', 'Es trat ein Fehler auf bei dem Abrufen der Information! (Interessierte können die JavaScript Konsole für mehr Infos einsehen!)');
     });
     
     // // Dummy Data

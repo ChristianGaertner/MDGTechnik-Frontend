@@ -1,4 +1,4 @@
-angular.module('app').controller('NewController', function($scope, $http, $location) {
+angular.module('app').controller('NewController', function($scope, $http, $location, NotificationService) {
 
     $scope.data = {};
     $scope.data.selfSent = false;
@@ -6,11 +6,7 @@ angular.module('app').controller('NewController', function($scope, $http, $locat
 
         // Client side form validation
         if ($scope.isInvalid()) {
-            $scope.modal = {
-                    title : 'Achtung!',
-                    msg : 'Das Formular muss fehlerfrei sein, bevor es abgesendet werden kann!',
-            };
-            $('#notice_modal').modal('show');
+            NotificationService.show('Achtung!', 'Das Formular muss fehlerfrei sein, bevor es abgesendet werden kann!');
             return;
         }
 
@@ -34,22 +30,12 @@ angular.module('app').controller('NewController', function($scope, $http, $locat
             if (res.status == 'success') {
                 $location.path('veranstaltung/' + res.data.id);
             } else {
-                $scope.modal = {
-                    title : 'Achtung!',
-                    msg : 'Es trat ein Fehler auf bei der Speicherung der Information! (Antwort des Servers: "' + data.message + '")',
-                };
-                $('#notice_modal').modal('show');
+                NotificationService.show('Achtung!', 'Es trat ein Fehler auf bei der Speicherung der Information! (Antwort des Servers: "' + data.message + '")');
             }
         })
         .error(function(res, status) {
-
             $scope.loading.active = false;
-
-            $scope.modal = {
-                title : 'Achtung!',
-                msg : 'Es trat ein Fehler auf bei der Speicherung der Information! (Interessierte können die JavaScript Konsole für mehr Infos einsehen!)',
-            };
-            $('#notice_modal').modal('show');
+            NotificationService.show('Achtung!', 'Es trat ein Fehler auf bei der Speicherung der Information! (Interessierte können die JavaScript Konsole für mehr Infos einsehen!)');
         });
     };
 
