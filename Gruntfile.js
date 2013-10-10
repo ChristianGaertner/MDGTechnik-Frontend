@@ -17,8 +17,15 @@ module.exports = function (grunt) {
 				mangle: false
 			}
 		},
+
+		watch: {
+			files: ['app/**/*.js'],
+			tasks: ['jshint', 'uglify']
+		},
 	});
+	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
+
 	grunt.registerTask('default', ['jshint', 'uglify']);
 };
