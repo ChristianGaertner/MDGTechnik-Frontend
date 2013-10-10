@@ -4,17 +4,19 @@ angular.module('app').controller('SingleController', function($scope, $http, $lo
 
     // Receving data
     $http({
-        url: API_ADRESS + 'index.php?id=' + $routeParams.id,
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-        }
+        url: API_ADRESS + 'veranstaltung/' + $routeParams.id,
+        method: 'GET'
     })
     .success(function(data) {
         LoadingScreenService.hide();
         if (data.status == 'success') {
 
             $scope.veranstaltung = data.data;
+            $scope.veranstaltung.status = {
+                message: $scope.veranstaltung.status_message,
+                type: $scope.veranstaltung.status_type,
+            };
+
 
 
             switch($scope.veranstaltung.status.type) {

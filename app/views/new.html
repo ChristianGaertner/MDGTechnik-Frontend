@@ -31,42 +31,42 @@
                     <label>
                         Name Veranstaltung:
                     </label>
-                    <input id="eventName" type="text" ng-model="data.eventName" placeholder="DSP Kurs XYZ" required>
+                    <input id="eventName" type="text" ng-model="data.author" placeholder="DSP Kurs XYZ" required>
                 </div>
 
                 <div class="field">
                     <label>
                         Veranstaltungs Ort:
                     </label>
-                    <input id="eventLoc" type="text" ng-model="data.eventLoc" placeholder="Aula" required>
+                    <input id="eventLoc" type="text" ng-model="data.loc" placeholder="Aula" required>
                 </div>
 
                 <div class="field">
                     <label>
                         Datum:
                     </label>
-                    <input id="eventDate" type="text" ng-model="data.eventDate" placeholder="1.1.1971" ui-date required/>
+                    <input id="eventDate" type="text" ng-model="data.date" placeholder="1.1.1971" ui-date required/>
                 </div>
 
                 <div class="field">
                     <label>
                         Zeitraum:
                     </label>
-                    <input id="eventTime" type="text" ng-model="data.eventTime" placeholder="00:00 - 24:00" required>
+                    <input id="eventTime" type="text" ng-model="data.timespan" placeholder="00:00 - 24:00" required>
                 </div>
 
                 <div class="field">
                     <label>
                         Voraussichtlicher Technik-Bedarf:
                     </label>
-                    <textarea ng-model="data.eventReq" placeholder="2x Mikrophon, etc."></textarea>
+                    <textarea ng-model="data.req" placeholder="2x Mikrophon, etc."></textarea>
                 </div>
 
                 <div class="field">
                     <label>
                         Weitere Anmerkungen:
                     </label>
-                    <textarea ng-model="data.extra"></textarea>
+                    <textarea ng-model="data.notes"></textarea>
                 </div>
                 
 

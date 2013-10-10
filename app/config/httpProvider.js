@@ -6,3 +6,7 @@ angular.module('app').config(function ($httpProvider) {
         return $.param(data);
     };
 });
+
+angular.module('app').config(['$httpProvider', function($httpProvider) {
+	$httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+}]);

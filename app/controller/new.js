@@ -14,7 +14,7 @@ angular.module('app').controller('NewController', function($scope, $http, $locat
 
         // Posting data
         $http({
-            url: API_ADRESS + 'index.php',
+            url: API_ADRESS + 'veranstaltung',
             method: 'POST',
             data: $scope.data,
             headers: {

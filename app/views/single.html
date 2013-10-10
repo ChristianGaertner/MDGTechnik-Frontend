@@ -17,11 +17,11 @@
                     </tr>
                     <tr>
                         <td>Erstellt am</td>
-                        <td>{{ veranstaltung.createdAt }}</td>
+                        <td>{{ veranstaltung.created_at }}</td>
                     </tr>
                     <tr>
                         <td>Zuletztz bearbeitet am</td>
-                        <td>{{ veranstaltung.lastEdit }}</td>
+                        <td>{{ veranstaltung.updated_at }}</td>
                     </tr>
                     <tr>
                         <td>Autor</td>
@@ -60,8 +60,8 @@
                     <tr>
                         <td>Eingeteilter Techniker</td>
                         <td>
-                            <div ng-repeat="worker in veranstaltung.workers">
-                                {{ worker.job }} : {{ worker.name }}
+                            <div ng-repeat="(key, data) in veranstaltung.workers">
+                                <span ng-show="data"><strong>{{ key }}</strong> : <span ng-repeat="name in data"><br>{{ name }}</span></span>
                             </div>
                         </td>
                     </tr>
