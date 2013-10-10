@@ -17,6 +17,8 @@ angular.module('app').controller('SingleController', function($scope, $http, $lo
                 type: $scope.veranstaltung.status_type,
             };
 
+            console.log(data);
+
 
 
             switch($scope.veranstaltung.status.type) {

@@ -17,9 +17,6 @@ angular.module('app').controller('NewController', function($scope, $http, $locat
             url: API_ADRESS + 'veranstaltung',
             method: 'POST',
             data: $scope.data,
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-            }
         })
         .success(function(res) {
             LoadingScreenService.hide();

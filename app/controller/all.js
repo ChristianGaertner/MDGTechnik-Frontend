@@ -5,7 +5,7 @@ angular.module('app').controller('AllController', function($scope, $http, Notifi
 
     // Receving data
     $http({
-        url: API_ADRESS + 'index.php?id=' + 1,
+        url: API_ADRESS + 'veranstaltung',
         method: 'GET',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
