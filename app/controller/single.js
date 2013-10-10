@@ -39,7 +39,15 @@ angular.module('app').controller('SingleController', function($scope, $http, $lo
     })
     .error(function(data, status) {
         LoadingScreenService.hide();
-        NotificationService.show('Achtung!', 'Es trat ein Fehler auf bei dem Abrufen der Information! (Interessierte können die JavaScript Konsole für mehr Infos einsehen!)');
+
+        var msg;
+        if (status == 404) {
+            msg = 'Eine Veranstaltung mit dieser ID ist nicht in der Datenbank. Falls Sie denken, dass dies ein Fehler ist kontaktieren sie einen Adminstrator!';
+        } else {
+            msg = 'Es trat ein Fehler auf bei dem Abrufen der Information! (Interessierte können die JavaScript Konsole für mehr Infos einsehen!)';
+        }
+
+        NotificationService.show('Achtung!', msg);
     });
 
     // Edit
