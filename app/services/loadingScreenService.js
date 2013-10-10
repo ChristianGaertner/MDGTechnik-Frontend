@@ -1,4 +1,4 @@
-app.factory('LoadingScreenService', function($rootScope) {
+angular.module('app').factory('LoadingScreenService', function($rootScope) {
 
 	return {
 		show: function(message) {

@@ -1,4 +1,4 @@
-app.factory('NotificationService', function($rootScope) {
+angular.module('app').factory('NotificationService', function($rootScope) {
 
 	return {
 		show: function(m_title, m_message) {

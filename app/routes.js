@@ -1,4 +1,4 @@
-app.config(function($routeProvider) {
+angular.module('app').config(function($routeProvider) {
 
 	$routeProvider.when('/veranstaltungen', {
 		templateUrl: 'app/views/all.html',
