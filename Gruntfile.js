@@ -13,9 +13,10 @@ module.exports = function (grunt) {
 				dest: 'dist/app.min.js'
 			},
 			options: {
-				banner: '/* (c) Christian Gärtner 2013 MDGTechnik AngularJS Frontend. Build on <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+				banner: '/*\n * (c) Christian Gärtner 2013\n * MDGTechnik AngularJS Frontend.\n * License: All rights reserved\n * Build on <%= grunt.template.today("yyyy-mm-dd") %>\n */\n',
+				mangle: false
 			}
-		}
+		},
 	});
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
