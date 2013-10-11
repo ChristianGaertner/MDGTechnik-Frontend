@@ -1,4 +1,4 @@
-angular.module('app').config(function ($httpProvider) {
+angular.module('app').config(function($httpProvider) {
     $httpProvider.defaults.transformRequest = function(data){
         if (data === undefined) {
             return data;
