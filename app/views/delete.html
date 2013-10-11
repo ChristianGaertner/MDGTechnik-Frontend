@@ -1,1 +1,33 @@
-<h1>Veranstaltung ID: {{ id }} gelöscht</h1>
+
+
+
+    <div class="ui celled grid">
+        <div class="one wide middle column">
+            <i class="huge trash icon"></i>
+        </div>
+
+        <div class="eight wide middle column">
+            <h1>Zum Löschen ist Ihr Schlüssel erforderlich</h1>
+            <p>
+				Diesen Schlüssel haben Sie bei der Erstellung erhalten. <br />
+				Sollten Sie ihn verloren haben kontaktieren Sie einen Adminstrator!
+			</p>     
+            
+            <div class="ui form segment">
+            	<div class="field">
+            		<label>
+            			Ihr Schlüssel (KEY):
+            		</label>
+            		<input type="text" placeholder="$2y$08$GKW6PF5mL3hzlCWmbNpsveHthm4Wgu/PujabRQXQnVReNz8B/XIqe" ng-model="key"/>
+            	</div>
+
+				<button class="ui red labeled icon button" ng-click="delete()">
+                    Veranstaltung löschen
+                    <i class="delete icon"></i>
+                </button>
+
+            </div>
+
+        </div>
+    </div>
+    <div ng-include src="'app/views/shared/question_modal.html'"></div>
