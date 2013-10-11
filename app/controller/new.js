@@ -22,7 +22,7 @@ angular.module('app').controller('NewController', function($scope, $http, $locat
             LoadingScreenService.hide();
 
             if (res.status == 'success') {
-                NotificationService.show('Wichtig!', 'Dies ist Ihr persönlicher Schlüssel für dieses Event. Gut abspeichern! KEY: ' + res.data.key);
+                NotificationService.show('Wichtig!', 'Dies ist Ihr persönlicher Schlüssel für dieses Event. Gut abspeichern! <br />KEY: <div class="cg_selectable">' + res.data.key + '</div>');
                 $location.path('veranstaltung/' + res.data.id);
             } else {
                 NotificationService.show('Achtung!', 'Es trat ein Fehler auf bei der Speicherung der Information! (Antwort des Servers: "' + res.message + '")');
