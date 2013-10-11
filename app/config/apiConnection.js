@@ -6,5 +6,3 @@ if (window.location.host.indexOf('localhost') == -1) {
 } else {
 	API_ADRESS = 'http://192.168.2.107:4000/' + API_VERSION + '/';
 }
-
-console.log(API_ADRESS);
