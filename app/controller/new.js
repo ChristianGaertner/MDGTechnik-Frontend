@@ -22,6 +22,7 @@ angular.module('app').controller('NewController', function($scope, $http, $locat
             LoadingScreenService.hide();
 
             if (res.status == 'success') {
+                NotificationService.show('Wichtig!', 'Dies ist Ihr persönlicher Schlüssel für dieses Event. Gut abspeichern! KEY: ' + res.data.key);
                 $location.path('veranstaltung/' + res.data.id);
             } else {
                 NotificationService.show('Achtung!', 'Es trat ein Fehler auf bei der Speicherung der Information! (Antwort des Servers: "' + res.message + '")');
@@ -29,7 +30,17 @@ angular.module('app').controller('NewController', function($scope, $http, $locat
         })
         .error(function(res, status) {
             LoadingScreenService.hide();
-            NotificationService.show('Achtung!', 'Es trat ein Fehler auf bei der Speicherung der Information! (Interessierte können die JavaScript Konsole für mehr Infos einsehen!)');
+            
+            if (status == 400) {
+                var errorStr = '';
+
+                for (var index in res.data) {
+                    errorStr += "<li>" + res.data[index][0] + " </li> ";
+                }
+                NotificationService.show('Achtung!', 'Ihre Eingaben waren fehlerhaft! <br /><ul>' + errorStr);
+            } else {
+                NotificationService.show('Achtung!', 'Es trat ein Fehler auf bei der Speicherung der Information! (Interessierte können die JavaScript Konsole für mehr Infos einsehen!)');
+            }
         });
     };
 
