@@ -1,6 +1,9 @@
 angular.module('app').controller('DeleteController', function($scope, $http, $location, $routeParams, NotificationService) {
     $scope.id = $routeParams.id;
 
+    // otherwise this would result in a string "undefined"
+    $scope.key = '';
+
     $scope.delete = function() {
         $http({
             url: API_ADRESS + 'veranstaltung/' + $scope.id + '?key=' + window.btoa($scope.key),
