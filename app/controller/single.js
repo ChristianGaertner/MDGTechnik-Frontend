@@ -54,6 +54,18 @@ angular.module('app').controller('SingleController', function($scope, $http, $lo
 
     // Edit
     $scope.edit = function() {
+        // $http({
+        //     method: 'PUT',
+        //     url: API_ADRESS + 'veranstaltung',
+        //     data: $scope.veranstaltung
+        // })
+        // .success(function(data) {
+        //     console.log(data);
+        // })
+        // .error(function(data, status) {
+        //     console.log(status);
+        // });
+
         NotificationService.show('In Kürze!', 'Diese Funktion ist in kürze Verfügbar!');
     };
 
