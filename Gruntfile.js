@@ -32,7 +32,7 @@ module.exports = function (grunt) {
 
 		uglify: {
 			dist: {
-				src: 'dist/app/*.js',
+				src: ['dist/app/*.js', 'vendor/**/*.js'],
 				dest: 'dist/app.min.js'
 			},
 			options: {
