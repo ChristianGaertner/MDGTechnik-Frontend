@@ -66,7 +66,7 @@ angular.module('app').controller('SingleController', function($scope, $http, $lo
         //     console.log(status);
         // });
 
-        NotificationService.show('In Kürze!', 'Diese Funktion ist in kürze Verfügbar!');
+        NotificationService.show('In Kürze!', 'Diese Funktion ist in kürze Verfügbar! (Mit Kürze wird gemeint, wann Lust und Zeit dafür vorhanden ist.');
     };
 
     // Deletion confirmation
