@@ -1,4 +1,7 @@
 angular.module('app').config(function($httpProvider) {
+
+    $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+
     $httpProvider.defaults.transformRequest = function(data){
         if (data === undefined) {
             return data;
@@ -6,7 +9,3 @@ angular.module('app').config(function($httpProvider) {
         return $.param(data);
     };
 });
-
-angular.module('app').config(['$httpProvider', function($httpProvider) {
-	$httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
-}]);
